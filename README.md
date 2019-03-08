@@ -23,6 +23,8 @@ The server's endpoints are detailed below:
 * `/outfits/:outfit` : makes a purchase of a given outfit item  
 
 
+### Section 1
+
 #### `checkServerStatus()`
 
 - this function should take a callback function as its only argument.
@@ -53,7 +55,7 @@ The server's endpoints are detailed below:
 - you must finally pass the array of all those adorable cats to the callback function
 
 
-### `fetchOwnersWithCats()`
+#### `fetchOwnersWithCats()`
 
 - this function should take a callback function as its only argument
 - this function should make use of `fetchAllOwners` and `fetchCatsByOwner` in order to build an 
@@ -61,7 +63,7 @@ array of nested arrays, each array including an owner and their array of cats
 - you get the drill by now, but you must pass the array of cats and owners to the callback function
 
 
-**ADVANCED**
+### Section 1- Advanced
 
 #### `kickLegacyServerUntilItWorks()`
 
