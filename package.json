@@ -1,0 +1,25 @@
+{
+  "name": "BE-callback-heaven",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northcoders/BE-callback-heaven.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/northcoders/BE-callback-heaven/issues"
+  },
+  "homepage": "https://github.com/northcoders/BE-callback-heaven#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "prettier": "^1.16.4"
+  }
+}
