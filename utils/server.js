@@ -3,7 +3,7 @@ const db = require('./database')
 const server = (requestUrl, handleResponse) => {
   const validUrls = {
     '/owners' : db.owners,
-    '/status': () => Math.random() > 0.5 ? '200 - the server is good' : '500 - the server is bad'
+    '/status': '200 - the server is good'
   } 
   setTimeout(() => {
     let response = ''
