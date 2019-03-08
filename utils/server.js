@@ -1,21 +1,24 @@
-const db = require('./database')
+const db = require('./database');
+const {checkLegacyStatus, checkStatus, fetchOwners, fetchCatsByOwner} = require('./controllers')
 
 const server = (requestUrl, handleResponse) => {
+  const errors = [];
+  let response = ''
   const validUrls = {
-    '/owners' : db.owners,
-    '/status': '200 - the server is good'
+    '/owners' : fetchOwners,
+    '/status': checkStatus,
+    '/legacy-status': checkLegacyStatus
   } 
   setTimeout(() => {
-    let response = ''
     if(/\/owners\/\w+\/cats/.test(requestUrl)) {
       const owner = requestUrl.split('/')[2];
-      response = db.catsByOwner[owner];
+      response = fetchCatsByOwner(errors, db, owner);
     }
     else {
-      response = validUrls[requestUrl]
+      response = validUrls[requestUrl](errors, db);
     }
-    if(response[0] === '5') return handleResponse(response);
-    return response ? handleResponse(null, response) : handleResponse('404 - path not found!');
+    if(errors.length) return handleResponse(errors[0]);
+    else return response ? handleResponse(null, response) : handleResponse('404 - path not found!');
   }, Math.random() * 2000)
 }
 

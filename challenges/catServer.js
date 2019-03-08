@@ -5,7 +5,6 @@ const checkServerStatus = (cb) => {
   request('/status', cb)
 }
 
-
 const fetchAllOwners = (cb) => {
   request('/owners', (err, owners) => {
     if(err) cb(err);
@@ -47,4 +46,11 @@ const fetchOwnersWithCats = (cb) => {
 }
 
 
-console.log(checkServerStatus())
+// ADVANCED
+
+const kickLegacyServerUntilItWorks = cb => {
+  request('/legacy-status', (err, status) => {
+    if(err) return kickLegacyServerUntilItWorks(cb);
+    else return cb(null, status);
+  });
+}
