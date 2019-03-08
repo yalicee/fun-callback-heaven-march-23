@@ -33,6 +33,8 @@ The endpoints, and their desired results, are outline below.
 - `/legacy-status` : responds with a successful response only some of the time but on other occasions will respond with an error
 - `/outfits/:outfit` : makes a purchase of a given outfit item
 
+### Section 1
+
 #### `checkServerStatus()`
 
 - this function should take a callback function as its only argument.
@@ -66,7 +68,7 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 - Be mindful of the casing of your requests! `fetchCatsByOwner` only works with lowercase owner names
 - you must finally pass the array of all those adorable cats to the callback function, sorted in alphabetical order
 
-### `fetchOwnersWithCats()`
+#### `fetchOwnersWithCats()`
 
 - this function should take a callback function as its only argument
 - this function should make use of `fetchAllOwners` and `fetchCatsByOwner` in order to build an
