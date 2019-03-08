@@ -53,7 +53,7 @@ const kickLegacyServerUntilItWorks = cb => {
     if(err) return kickLegacyServerUntilItWorks(cb);
     else cb(null, status);
   });
-}
+};
 
 
 const buySingleOutfit = (outfit, cb) => {
