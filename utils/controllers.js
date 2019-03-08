@@ -12,3 +12,16 @@ exports.fetchCatsByOwner = (errors, db, owner) => {
     if(cats) return cats;
     else errors.push(`404 - ${owner} not found`)
 }
+
+exports.buyBuyBuy = (errors, db, outfit, handleResponse) => {
+    const cost = db.outfits[outfit];
+    if(!cost) errors.push(`404 - ${outfit} not found`);
+    const checkout = {quantity: 0, outfit, totalCost: 0}
+    let total = 0;
+    for(let i = 0; i < Math.floor(Math.random() * 1000); i++) {
+        checkout.totalCost += cost;
+        checkout.quantity++;
+        handleResponse(null, checkout)
+    }
+    return checkout;
+}

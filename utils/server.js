@@ -1,5 +1,5 @@
 const db = require('./database');
-const {checkLegacyStatus, checkStatus, fetchOwners, fetchCatsByOwner} = require('./controllers')
+const {checkLegacyStatus, checkStatus, fetchOwners, fetchCatsByOwner, buyBuyBuy} = require('./controllers')
 
 const server = (requestUrl, handleResponse) => {
   const errors = [];
@@ -14,6 +14,10 @@ const server = (requestUrl, handleResponse) => {
       const owner = requestUrl.split('/')[2];
       response = fetchCatsByOwner(errors, db, owner);
     }
+    else if(/\/outfits/.test(requestUrl)) {
+      const outfit = requestUrl.split('/')[2];
+      response = buyBuyBuy(errors, db, outfit, handleResponse);
+    }
     else {
       response = validUrls[requestUrl](errors, db);
     }
@@ -23,6 +27,3 @@ const server = (requestUrl, handleResponse) => {
 }
 
 module.exports = server;
-
-// getSuperHeroes --> getCats
-// getArchEnemy
