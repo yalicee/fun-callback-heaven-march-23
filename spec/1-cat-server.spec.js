@@ -7,7 +7,7 @@ const {
   fetchOwnersWithCats,
   kickLegacyServerUntilItWorks,
   buySingleOutfit
-} = require('../challenges/catServer');
+} = require('../challenges/1-cat-server');
 const { expect } = require('chai');
 
 describe('checkServerStatus', () => {
