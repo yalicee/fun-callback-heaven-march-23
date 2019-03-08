@@ -1,7 +1,11 @@
 exports.checkLegacyStatus = errors => {
     if(Math.random() < 0.35) errors.push('500 - internal server error');
     else return '200 - the legacy server is up';
-  }
+}; 
+
+exports.getBannerContent = (errors, db) => {
+    return db.bannerContent;
+}
 
 exports.fetchOwners = (errors, db) => db.owners;
 

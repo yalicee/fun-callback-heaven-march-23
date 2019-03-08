@@ -2,7 +2,11 @@ const request = require('../utils/server');
 
 
 const checkServerStatus = (cb) => {
-  request('/status', cb)
+  request('/status', cb);
+};
+
+const fetchBannerContent = (cb) => {
+  request('/banner', cb);
 }
 
 const fetchAllOwners = (cb) => {
@@ -54,7 +58,6 @@ const kickLegacyServerUntilItWorks = cb => {
     else cb(null, status);
   });
 };
-
 
 const buySingleOutfit = (outfit, cb) => {
   let called = false;

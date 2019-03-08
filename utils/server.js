@@ -1,5 +1,5 @@
 const db = require('./database');
-const {checkLegacyStatus, checkStatus, fetchOwners, fetchCatsByOwner, buyBuyBuy} = require('./controllers')
+const {checkLegacyStatus, getBannerContent,checkStatus, fetchOwners, fetchCatsByOwner, buyBuyBuy} = require('./controllers')
 
 const server = (requestUrl, handleResponse) => {
   const errors = [];
@@ -7,7 +7,8 @@ const server = (requestUrl, handleResponse) => {
   const validUrls = {
     '/owners' : fetchOwners,
     '/status': checkStatus,
-    '/legacy-status': checkLegacyStatus
+    '/legacy-status': checkLegacyStatus, 
+    '/banner': getBannerContent
   } 
   setTimeout(() => {
     if(/\/owners\/\w+\/cats/.test(requestUrl)) {
