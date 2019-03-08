@@ -1,3 +1,9 @@
+exports.bannerContent = {
+    title: 'Kitty Litter', 
+    bannerImg: 'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
+    copyrightYear: 2019
+};
+
 exports.owners = [
     'Schrodinger', 
     'Pavlov', 
