@@ -154,7 +154,7 @@ describe('fetchOwnersWithCats', () => {
     fetchOwnersWithCats(testCB);
   });
   it('orders the owners without using a sort function', () => {
-    expect(fetchOwnersWithCats.toString()).to.not.include('.sort()');
+    expect(fetchOwnersWithCats.toString()).to.not.include('.sort(');
   });
 });
 
