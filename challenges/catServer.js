@@ -51,6 +51,18 @@ const fetchOwnersWithCats = (cb) => {
 const kickLegacyServerUntilItWorks = cb => {
   request('/legacy-status', (err, status) => {
     if(err) return kickLegacyServerUntilItWorks(cb);
-    else return cb(null, status);
+    else cb(null, status);
   });
 }
+
+
+const buySingleOutfit = (outfit, cb) => {
+  let called = false;
+  request(`/outfits/${outfit}`, (err, checkout) => {
+    if(!called) {
+      cb(null, checkout);
+      called = true;
+    }
+  });
+};
+
