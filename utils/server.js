@@ -18,7 +18,7 @@ const server = (requestUrl, handleResponse) => {
     '/banner': getBannerContent
   };
   setTimeout(() => {
-    if (/\/owners\/\w+\/cats/.test(requestUrl)) {
+    if (/\/owners\/\[\W\w]+\/cats/.test(requestUrl)) {
       const owner = requestUrl.split('/')[2];
       response = fetchCatsByOwner(errors, db, owner);
     } else if (/\/outfits/.test(requestUrl)) {
