@@ -141,7 +141,7 @@ describe('fetchAllCats', () => {
   });
 });
 
-describe('fetchCatPics', () => {
+describe.only('fetchCatPics', () => {
   it('invokes the callback function with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
