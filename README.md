@@ -55,6 +55,13 @@ The endpoints, and their desired results, are outline below.
 - the server will respond with an array of capitalised owner names
 - your callback function should be invoked with an array of lowercase owner names
 
+#### `fetchCatPics()`
+
+- this function should take an array of strings (names of cat pics) and a callback function
+- for each catpic, a request should be sent to `/pics/:catpic`
+- the callback function should be invoked with an array of responses (the order does not matter)
+- if the server returns an error (which happens when the request doesn't contain the word `cat`), you must put `placeholder.jpg` in its place in the response array
+
 #### `fetchCatsByOwner()`
 
 - this function should take an owner name and a callback function as its arguments
@@ -70,13 +77,6 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 - this function should make use of both `fetchAllOwners` and `fetchCatsByOwner` in order to retrieve an array of all the cats from the server
 - Be mindful of the casing of your requests! `fetchCatsByOwner` only works with lowercase owner names
 - you must finally pass the array of all those adorable cats to the callback function, sorted in alphabetical order
-
-#### `fetchCatPics()`
-
-- this function should take an array of strings (names of cat pics) and a callback function
-- for each catpic, a request should be sent to `/pics/:catpic`
-- the callback function should be invoked with an array of responses (the order does not matter)
-- if the server returns an error (which happens when the request doesn't contain the word `cat`), you must put `placeholder.jpg` in its place in the response array
 
 #### `fetchOwnersWithCats()`
 

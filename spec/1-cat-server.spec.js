@@ -88,6 +88,57 @@ describe('fetchAllOwners', () => {
   });
 });
 
+describe('fetchCatPics', () => {
+  it('invokes the callback function with no error', done => {
+    const testCB = err => {
+      expect(err).to.be.null;
+      done();
+    };
+    fetchCatPics([], testCB);
+  });
+  it('invokes the callback function with a single response', done => {
+    const testCB = (err, responses) => {
+      expect(responses).to.eql(['cute-cat.jpg']);
+      done();
+    };
+    fetchCatPics(['cute-cat'], testCB);
+  });
+  it('invokes the callback function with multiple unordered responses', done => {
+    const testCB = (err, responses) => {
+      expect(responses).to.include('cute-cat.jpg');
+      expect(responses).to.include('chonky-cat.jpg');
+      expect(responses).to.include('scratchy-cat.jpg');
+      expect(responses).to.include('pathetic-cat.jpg');
+      done();
+    };
+    fetchCatPics(
+      ['cute-cat', 'chonky-cat', 'scratchy-cat', 'pathetic-cat'],
+      testCB
+    );
+  });
+  it('handles error responses with a placeholder', done => {
+    const testCB = (err, responses) => {
+      expect(responses).to.include('cute-cat.jpg');
+      expect(responses).to.include('chonky-cat.jpg');
+      expect(responses).to.include('scratchy-cat.jpg');
+      expect(responses).to.include('pathetic-cat.jpg');
+      expect(responses).to.not.include('ERROR: out-of-place-dog not found!');
+      expect(responses).to.include('placeholder.jpg');
+      done();
+    };
+    fetchCatPics(
+      [
+        'cute-cat',
+        'chonky-cat',
+        'scratchy-cat',
+        'pathetic-cat',
+        'out-of-place-dog'
+      ],
+      testCB
+    );
+  });
+});
+
 describe('fetchCatsByOwner', () => {
   it('invokes the callback with no error when given a valid owner', done => {
     const testCB = err => {
@@ -138,57 +189,6 @@ describe('fetchAllCats', () => {
       done();
     };
     fetchAllCats(testCB);
-  });
-});
-
-describe('fetchCatPics', () => {
-  it('invokes the callback function with no error', done => {
-    const testCB = err => {
-      expect(err).to.be.null;
-      done();
-    };
-    fetchCatPics([], testCB);
-  });
-  it('invokes the callback function with a single response', done => {
-    const testCB = (err, responses) => {
-      expect(responses).to.eql(['cute-cat.jpg']);
-      done();
-    };
-    fetchCatPics(['cute-cat'], testCB);
-  });
-  it('invokes the callback function with multiple unordered responses', done => {
-    const testCB = (err, responses) => {
-      expect(responses).to.include('cute-cat.jpg');
-      expect(responses).to.include('chonky-cat.jpg');
-      expect(responses).to.include('scratchy-cat.jpg');
-      expect(responses).to.include('pathetic-cat.jpg');
-      done();
-    };
-    fetchCatPics(
-      ['cute-cat', 'chonky-cat', 'scratchy-cat', 'pathetic-cat'],
-      testCB
-    );
-  });
-  it('handles error responses with a placeholder', done => {
-    const testCB = (err, responses) => {
-      expect(responses).to.include('cute-cat.jpg');
-      expect(responses).to.include('chonky-cat.jpg');
-      expect(responses).to.include('scratchy-cat.jpg');
-      expect(responses).to.include('pathetic-cat.jpg');
-      expect(responses).to.not.include('ERROR: out-of-place-dog not found!');
-      expect(responses).to.include('placeholder.jpg');
-      done();
-    };
-    fetchCatPics(
-      [
-        'cute-cat',
-        'chonky-cat',
-        'scratchy-cat',
-        'pathetic-cat',
-        'out-of-place-dog'
-      ],
-      testCB
-    );
   });
 });
 
