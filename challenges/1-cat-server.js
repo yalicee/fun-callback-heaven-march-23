@@ -6,6 +6,8 @@ const fetchBannerContent = () => {};
 
 const fetchAllOwners = () => {};
 
+const fetchCatPics = () => {};
+
 const fetchCatsByOwner = () => {};
 
 const fetchAllCats = () => {};
@@ -21,6 +23,7 @@ module.exports = {
   checkServerStatus,
   kickLegacyServerUntilItWorks,
   fetchAllCats,
+  fetchCatPics,
   fetchAllOwners,
   fetchBannerContent,
   fetchOwnersWithCats,
