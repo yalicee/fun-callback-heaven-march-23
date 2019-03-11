@@ -10,7 +10,7 @@ The server's endpoints are detailed below:
 
 - Learn about asynchronous nature of javascript
 - Understand how to use callback functions in Node
-- Understand how to deal with the most common issues that arise from using
+- Understand how to deal with the most common issues that arise from using callbacks
 
 ## Section 1 - Kitty Litter Cat Server
 
