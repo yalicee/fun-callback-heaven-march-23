@@ -79,6 +79,7 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 #### `kickLegacyServerUntilItWorks()`
 
 - this function takes a callback function as its only argument
+- this function will need to make a request to the `/legacy-status` end-point
 - the legacy server will only respond with a success some of the time.
   Your function must continue to make requests to the legacy server until it gets a successful response
 - it should pass the status to the callback function
