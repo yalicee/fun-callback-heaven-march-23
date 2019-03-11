@@ -28,7 +28,7 @@ describe('checkServerStatus', () => {
   });
 });
 
-describe('fetchBannerContent', () => {
+describe.only('fetchBannerContent', () => {
   it('invokes the callback with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
@@ -38,9 +38,10 @@ describe('fetchBannerContent', () => {
   });
   it('invokes the callback with a banner content object', done => {
     const testCB = (err, content) => {
-      expect(content).to.have.all.keys([title, bannerImg, copyrightYear]);
+      expect(content).to.have.all.keys(['title', 'bannerImg', 'copyrightYear']);
       done();
     };
+    fetchBannerContent(testCB);
   });
   it('invokes the callback with the updated banner content object', done => {
     const testCB = (err, content) => {
