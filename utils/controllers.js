@@ -5,7 +5,7 @@ exports.checkLegacyStatus = errors => {
 
 exports.getPic = (errors, db, pic) => {
   if (pic.includes('cat')) return `${pic}.jpg`;
-  else errors.push(new Error(`${pic} not found!`));
+  else errors.push(`ERROR: ${pic} not found!`);
 };
 
 exports.getBannerContent = (errors, db) => {
