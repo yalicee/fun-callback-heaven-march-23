@@ -52,7 +52,8 @@ The endpoints, and their desired results, are outline below.
 
 - this function should take a callback function as its only argument.
 - it should make a request to the server at the `/owners` endpoint.
-- the server will respond with an array of owners which you must pass to the callback function
+- the server will respond with an array of capitalised owner names
+- your callback function should be invoked with an array of lowercase owner names
 
 #### `fetchCatsByOwner()`
 
