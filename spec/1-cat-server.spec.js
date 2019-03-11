@@ -126,7 +126,7 @@ describe('fetchAllCats', () => {
   });
 });
 
-describe.only('fetchCatPics', () => {
+describe('fetchCatPics', () => {
   it('invokes the callback function with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
@@ -139,7 +139,7 @@ describe.only('fetchCatPics', () => {
       expect(responses).to.eql(['cute-cat.jpg']);
       done();
     };
-    fetchCatPics(['cute-cat', testCB]);
+    fetchCatPics(['cute-cat'], testCB);
   });
   it('invokes the callback function with multiple unordered responses', done => {
     const testCB = (err, responses) => {
