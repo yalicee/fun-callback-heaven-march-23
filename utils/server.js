@@ -3,6 +3,7 @@ const {
   checkLegacyStatus,
   getBannerContent,
   checkStatus,
+  getPic,
   fetchOwners,
   fetchCatsByOwner,
   buyBuyBuy
@@ -21,6 +22,9 @@ const server = (requestUrl, handleResponse) => {
     if (/\/owners\/[\W\w]+\/cats/.test(requestUrl)) {
       const owner = requestUrl.split('/')[2];
       response = fetchCatsByOwner(errors, db, owner);
+    } else if (/\/pics/.test(requestUrl)) {
+      const pic = requestUrl.split('/')[2];
+      response = getPic(errors, db, pic);
     } else if (/\/outfits/.test(requestUrl)) {
       const outfit = requestUrl.split('/')[2];
       response = buyBuyBuy(errors, db, outfit, handleResponse);

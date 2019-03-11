@@ -3,6 +3,11 @@ exports.checkLegacyStatus = errors => {
   else return '200 - the legacy server is up';
 };
 
+exports.getPic = (errors, db, pic) => {
+  if (pic.includes('cat')) return `${pic}.jpg`;
+  else errors.push(new Error(`${pic} not found!`));
+};
+
 exports.getBannerContent = (errors, db) => {
   return db.bannerContent;
 };
