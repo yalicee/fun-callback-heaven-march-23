@@ -45,7 +45,7 @@ The endpoints, and their desired results, are outline below.
 
 - this function should take a callback function
 - your function should make a request to the `/banner` end-point which responds with a banner object
-- embarrassingly, we haven't got the copyright updated for ... a few years. Please update the `copyrightYear` to `2019` before sending it back
+- embarrassingly, we haven't got the copyright updated for ... a few years. Please update the `copyrightYear` to `2019` 
 - you should pass the updated banner object to the final callback function
 
 #### `fetchAllOwners()`
