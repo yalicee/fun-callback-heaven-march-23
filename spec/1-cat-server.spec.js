@@ -28,7 +28,7 @@ describe('checkServerStatus', () => {
   });
 });
 
-describe.only('fetchBannerContent', () => {
+describe('fetchBannerContent', () => {
   it('invokes the callback with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
@@ -65,14 +65,22 @@ describe('fetchAllOwners', () => {
     };
     fetchAllOwners(testCB);
   });
-  it('invokes the callback with an array of the owners', done => {
+  it('invokes the callback with an array of the correct length', done => {
+    const testCB = (err, owners) => {
+      expect(owners).to.be.an('array');
+      expect(owners.length).to.equal(5);
+      done();
+    };
+    fetchAllOwners(testCB);
+  });
+  it('invokes the callback with an array of lowercase owner names', done => {
     const testCB = (err, owners) => {
       expect(owners).to.eql([
-        'Pavlov',
-        'Schrodinger',
-        'Foucault',
-        'Vel',
-        'Calvin'
+        'pavlov',
+        'schrodinger',
+        'foucault',
+        'vel',
+        'calvin'
       ]);
       done();
     };
