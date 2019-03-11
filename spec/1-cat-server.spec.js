@@ -36,7 +36,13 @@ describe('fetchBannerContent', () => {
     };
     fetchBannerContent(testCB);
   });
-  it('invokes the callback with the banner content object', done => {
+  it('invokes the callback with a banner content object', done => {
+    const testCB = (err, content) => {
+      expect(content).to.have.all.keys([title, bannerImg, copyrightYear]);
+      done();
+    };
+  });
+  it('invokes the callback with the updated banner content object', done => {
     const testCB = (err, content) => {
       expect(content).to.eql({
         title: 'Kitty Litter',
