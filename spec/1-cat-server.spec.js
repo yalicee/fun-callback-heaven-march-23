@@ -76,11 +76,11 @@ describe('fetchAllOwners', () => {
   it('invokes the callback with an array of lowercase owner names', done => {
     const testCB = (err, owners) => {
       expect(owners).to.eql([
-        'Pavlov',
-        'Schrodinger',
-        'Foucault',
-        'Vel',
-        'Calvin'
+        'pavlov',
+        'schrodinger',
+        'foucault',
+        'vel',
+        'calvin'
       ]);
       done();
     };
