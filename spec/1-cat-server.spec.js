@@ -76,11 +76,11 @@ describe('fetchAllOwners', () => {
   it('invokes the callback with an array of lowercase owner names', done => {
     const testCB = (err, owners) => {
       expect(owners).to.eql([
-        'pavlov',
-        'schrodinger',
-        'foucault',
-        'vel',
-        'calvin'
+        'Pavlov',
+        'Schrodinger',
+        'Foucault',
+        'Vel',
+        'Calvin'
       ]);
       done();
     };
@@ -145,7 +145,7 @@ describe('fetchCatsByOwner', () => {
       expect(err).to.be.null;
       done();
     };
-    fetchCatsByOwner('calvin', testCB);
+    fetchCatsByOwner('Calvin', testCB);
   });
   it('invokes the callback with the 404 error when given an invalid owner', done => {
     const owner = 'Mitch';
@@ -156,9 +156,9 @@ describe('fetchCatsByOwner', () => {
     fetchCatsByOwner(owner, testCB);
   });
   it('invokes the callback with the cats for the specified owner', done => {
-    fetchCatsByOwner('vel', (err, cats) => {
+    fetchCatsByOwner('Vel', (err, cats) => {
       expect(cats).to.eql(['Opal']);
-      fetchCatsByOwner('pavlov', (err, cats) => {
+      fetchCatsByOwner('Pavlov', (err, cats) => {
         expect(cats).to.eql(['Belle', 'Dribbles', 'Nibbles']);
         done();
       });
@@ -202,7 +202,7 @@ describe('fetchOwnersWithCats', () => {
   });
   it('invokes the callback function with an array of cat/owner objects', done => {
     const testCB = (err, owners) => {
-      expect(owners).to.deep.include({ owner: 'vel', cats: ['Opal'] });
+      expect(owners).to.deep.include({ owner: 'Vel', cats: ['Opal'] });
       done();
     };
     fetchOwnersWithCats(testCB);
@@ -210,11 +210,11 @@ describe('fetchOwnersWithCats', () => {
   it('invokes the callback function with the array of cat/owner objects in the origin order', done => {
     const testCB = (err, owners) => {
       expect(owners).to.deep.eql([
-        { owner: 'pavlov', cats: ['Belle', 'Dribbles', 'Nibbles'] },
-        { owner: 'schrodinger', cats: ['Leben', 'Tot'] },
-        { owner: 'foucault', cats: ['M. Fang'] },
-        { owner: 'vel', cats: ['Opal'] },
-        { owner: 'calvin', cats: ['Hobbes'] }
+        { owner: 'Pavlov', cats: ['Belle', 'Dribbles', 'Nibbles'] },
+        { owner: 'Schrodinger', cats: ['Leben', 'Tot'] },
+        { owner: 'Foucault', cats: ['M. Fang'] },
+        { owner: 'Vel', cats: ['Opal'] },
+        { owner: 'Calvin', cats: ['Hobbes'] }
       ]);
       done();
     };
