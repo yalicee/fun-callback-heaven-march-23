@@ -7,11 +7,11 @@ exports.bannerContent = {
 exports.owners = ['Pavlov', 'Schrodinger', 'Foucault', 'Vel', 'Calvin'];
 
 exports.catsByOwner = {
-  Schrodinger: ['Leben', 'Tot'],
-  Pavlov: ['Belle', 'Dribbles', 'Nibbles'],
-  Foucault: ['M. Fang'],
-  Vel: ['Opal'],
-  Calvin: ['Hobbes']
+  schrodinger: ['Leben', 'Tot'],
+  pavlov: ['Belle', 'Dribbles', 'Nibbles'],
+  foucault: ['M. Fang'],
+  vel: ['Opal'],
+  calvin: ['Hobbes']
 };
 exports.outfits = {
   taco: 100,
