@@ -145,10 +145,10 @@ describe('fetchCatsByOwner', () => {
       expect(err).to.be.null;
       done();
     };
-    fetchCatsByOwner('Calvin', testCB);
+    fetchCatsByOwner('calvin', testCB);
   });
   it('invokes the callback with the 404 error when given an invalid owner', done => {
-    const owner = 'Mitch';
+    const owner = 'mitch';
     const testCB = err => {
       expect(err).to.equal(`404 - ${owner} not found`);
       done();
@@ -156,9 +156,9 @@ describe('fetchCatsByOwner', () => {
     fetchCatsByOwner(owner, testCB);
   });
   it('invokes the callback with the cats for the specified owner', done => {
-    fetchCatsByOwner('Vel', (err, cats) => {
+    fetchCatsByOwner('vel', (err, cats) => {
       expect(cats).to.eql(['Opal']);
-      fetchCatsByOwner('Pavlov', (err, cats) => {
+      fetchCatsByOwner('pavlov', (err, cats) => {
         expect(cats).to.eql(['Belle', 'Dribbles', 'Nibbles']);
         done();
       });
