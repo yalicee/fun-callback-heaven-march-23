@@ -22,7 +22,7 @@ Using the `request` function provided, please interact with the server to pass t
 
 `request` is a function that takes hard coded endpoints, and a callback function. It will invoke the callback function asynchronously, with either an error or a result.
 
-The endpoints, and their desired results, are outline below.
+The endpoints, and their desired results, are outlined below.
 
 ### Available end-points:
 
