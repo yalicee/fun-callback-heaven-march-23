@@ -6,9 +6,9 @@ const fetchBannerContent = () => {};
 
 const fetchAllOwners = () => {};
 
-const fetchCatPics = () => {};
-
 const fetchCatsByOwner = () => {};
+
+const fetchCatPics = () => {};
 
 const fetchAllCats = () => {};
 
