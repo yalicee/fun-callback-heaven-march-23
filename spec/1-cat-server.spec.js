@@ -202,7 +202,7 @@ describe('fetchOwnersWithCats', () => {
   });
   it('invokes the callback function with an array of cat/owner objects', done => {
     const testCB = (err, owners) => {
-      expect(owners).to.deep.include({ owner: 'Vel', cats: ['Opal'] });
+      expect(owners).to.deep.include({ owner: 'vel', cats: ['Opal'] });
       done();
     };
     fetchOwnersWithCats(testCB);
@@ -210,11 +210,11 @@ describe('fetchOwnersWithCats', () => {
   it('invokes the callback function with the array of cat/owner objects in the origin order', done => {
     const testCB = (err, owners) => {
       expect(owners).to.deep.eql([
-        { owner: 'Pavlov', cats: ['Belle', 'Dribbles', 'Nibbles'] },
-        { owner: 'Schrodinger', cats: ['Leben', 'Tot'] },
-        { owner: 'Foucault', cats: ['M. Fang'] },
-        { owner: 'Vel', cats: ['Opal'] },
-        { owner: 'Calvin', cats: ['Hobbes'] }
+        { owner: 'pavlov', cats: ['Belle', 'Dribbles', 'Nibbles'] },
+        { owner: 'schrodinger', cats: ['Leben', 'Tot'] },
+        { owner: 'foucault', cats: ['M. Fang'] },
+        { owner: 'vel', cats: ['Opal'] },
+        { owner: 'calvin', cats: ['Hobbes'] }
       ]);
       done();
     };
