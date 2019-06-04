@@ -88,6 +88,33 @@ describe('fetchAllOwners', () => {
   });
 });
 
+ describe('fetchCatsByOwner', () => {
+  it('invokes the callback with no error when given a valid owner', done => {
+    const testCB = err => {
+      expect(err).to.be.null;
+      done();
+    };
+    fetchCatsByOwner('calvin', testCB);
+  });
+  it('invokes the callback with the 404 error when given an invalid owner', done => {
+    const owner = 'mitch';
+    const testCB = err => {
+      expect(err).to.equal(`404 - ${owner} not found`);
+      done();
+    };
+    fetchCatsByOwner(owner, testCB);
+  });
+  it('invokes the callback with the cats for the specified owner', done => {
+    fetchCatsByOwner('vel', (err, cats) => {
+      expect(cats).to.eql(['Opal']);
+      fetchCatsByOwner('pavlov', (err, cats) => {
+        expect(cats).to.eql(['Belle', 'Dribbles', 'Nibbles']);
+        done();
+      });
+    });
+  });
+});
+
 describe('fetchCatPics', () => {
   it('invokes the callback function with no error', done => {
     const testCB = err => {
@@ -136,33 +163,6 @@ describe('fetchCatPics', () => {
       ],
       testCB
     );
-  });
-});
-
-describe('fetchCatsByOwner', () => {
-  it('invokes the callback with no error when given a valid owner', done => {
-    const testCB = err => {
-      expect(err).to.be.null;
-      done();
-    };
-    fetchCatsByOwner('calvin', testCB);
-  });
-  it('invokes the callback with the 404 error when given an invalid owner', done => {
-    const owner = 'mitch';
-    const testCB = err => {
-      expect(err).to.equal(`404 - ${owner} not found`);
-      done();
-    };
-    fetchCatsByOwner(owner, testCB);
-  });
-  it('invokes the callback with the cats for the specified owner', done => {
-    fetchCatsByOwner('vel', (err, cats) => {
-      expect(cats).to.eql(['Opal']);
-      fetchCatsByOwner('pavlov', (err, cats) => {
-        expect(cats).to.eql(['Belle', 'Dribbles', 'Nibbles']);
-        done();
-      });
-    });
   });
 });
 
