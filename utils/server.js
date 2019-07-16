@@ -29,7 +29,9 @@ const server = (requestUrl, handleResponse) => {
       const outfit = requestUrl.split('/')[2];
       response = buyBuyBuy(errors, db, outfit, handleResponse);
     } else {
-      response = validUrls[requestUrl](errors, db);
+      if (!validUrls[requestUrl]) {
+        errors.push(`404 - "${requestUrl}" is not a valid path`);
+      } else response = validUrls[requestUrl](errors, db);
     }
     if (errors.length) return handleResponse(errors[0]);
     else
