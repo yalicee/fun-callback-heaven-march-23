@@ -69,7 +69,7 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 - this function should take an array of strings (names of cat pics) and a callback function
 - for each catpic, a request should be sent to `/pics/:catpic`
 - the callback function should be invoked with an array of responses (the order does not matter)
-- if the server returns an error (which happens when the request doesn't contain the word `cat`), you must put `placeholder.jpg` in its place in the response array
+- The server will respond with an error if the requested pic doesn't contain the word "cat". Therefore if you receive an error, you must put `placeholder.jpg` in its place in the response array to act as a placeholder for the missing cat picture.
 
 #### `fetchAllCats()`
 
