@@ -9,43 +9,52 @@ const {
   kickLegacyServerUntilItWorks,
   buySingleOutfit
 } = require('../challenges/1-cat-server');
-const { expect } = require('chai');
 
-describe('checkServerStatus', () => {
-  it('invokes the callback with no error', done => {
+describe.only('checkServerStatus', () => {
+  test('invokes the callback with no error', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     checkServerStatus(testCB);
   });
-  it('invokes the callback with the correct server status', done => {
+  test('invokes the callback with the correct server status', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, status) => {
-      expect(status).to.equal('200 - the server is good');
+      expect(status).toBe('200 - the server is good');
       done();
     };
     checkServerStatus(testCB);
   });
 });
 
-describe('fetchBannerContent', () => {
-  it('invokes the callback with no error', done => {
+describe.only('fetchBannerContent', () => {
+  test('invokes the callback with no error', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     fetchBannerContent(testCB);
   });
-  it('invokes the callback with a banner content object', done => {
+  test('invokes the callback with a banner content object', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, content) => {
       expect(content).to.have.all.keys(['title', 'bannerImg', 'copyrightYear']);
       done();
     };
     fetchBannerContent(testCB);
   });
-  it('invokes the callback with the updated banner content object', done => {
+  test('invokes the callback with the updated banner content object', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, content) => {
-      expect(content).to.eql({
+      expect(content).toEqual({
         title: 'Kitty Litter',
         bannerImg:
           'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
@@ -58,14 +67,14 @@ describe('fetchBannerContent', () => {
 });
 
 describe('fetchAllOwners', () => {
-  it('invokes the callback with no error', done => {
+  test('invokes the callback with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
       done();
     };
     fetchAllOwners(testCB);
   });
-  it('invokes the callback with an array of the correct length', done => {
+  test('invokes the callback with an array of the correct length', done => {
     const testCB = (err, owners) => {
       expect(owners).to.be.an('array');
       expect(owners.length).to.equal(5);
@@ -73,7 +82,7 @@ describe('fetchAllOwners', () => {
     };
     fetchAllOwners(testCB);
   });
-  it('invokes the callback with an array of lowercase owner names', done => {
+  test('invokes the callback with an array of lowercase owner names', done => {
     const testCB = (err, owners) => {
       expect(owners).to.eql([
         'pavlov',
@@ -88,15 +97,15 @@ describe('fetchAllOwners', () => {
   });
 });
 
- describe('fetchCatsByOwner', () => {
-  it('invokes the callback with no error when given a valid owner', done => {
+describe('fetchCatsByOwner', () => {
+  test('invokes the callback with no error when given a valid owner', done => {
     const testCB = err => {
       expect(err).to.be.null;
       done();
     };
     fetchCatsByOwner('calvin', testCB);
   });
-  it('invokes the callback with the 404 error when given an invalid owner', done => {
+  test('invokes the callback with the 404 error when given an invalid owner', done => {
     const owner = 'mitch';
     const testCB = err => {
       expect(err).to.equal(`404 - ${owner} not found`);
@@ -104,7 +113,7 @@ describe('fetchAllOwners', () => {
     };
     fetchCatsByOwner(owner, testCB);
   });
-  it('invokes the callback with the cats for the specified owner', done => {
+  test('invokes the callback with the cats for the specified owner', done => {
     fetchCatsByOwner('vel', (err, cats) => {
       expect(cats).to.eql(['Opal']);
       fetchCatsByOwner('pavlov', (err, cats) => {
@@ -116,21 +125,21 @@ describe('fetchAllOwners', () => {
 });
 
 describe('fetchCatPics', () => {
-  it('invokes the callback function with no error', done => {
+  test('invokes the callback function with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
       done();
     };
     fetchCatPics([], testCB);
   });
-  it('invokes the callback function with a single response', done => {
+  test('invokes the callback function with a single response', done => {
     const testCB = (err, responses) => {
       expect(responses).to.eql(['cute-cat.jpg']);
       done();
     };
     fetchCatPics(['cute-cat'], testCB);
   });
-  it('invokes the callback function with multiple unordered responses', done => {
+  test('invokes the callback function with multiple unordered responses', done => {
     const testCB = (err, responses) => {
       expect(responses).to.include('cute-cat.jpg');
       expect(responses).to.include('chonky-cat.jpg');
@@ -143,7 +152,7 @@ describe('fetchCatPics', () => {
       testCB
     );
   });
-  it('handles error responses with a placeholder', done => {
+  test('handles error responses with a placeholder', done => {
     const testCB = (err, responses) => {
       expect(responses).to.include('cute-cat.jpg');
       expect(responses).to.include('chonky-cat.jpg');
@@ -167,14 +176,14 @@ describe('fetchCatPics', () => {
 });
 
 describe('fetchAllCats', () => {
-  it('invokes the callback with no error', done => {
+  test('invokes the callback with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;
       done();
     };
     fetchAllCats(testCB);
   });
-  it('invokes the callback with an array of all the cats, sorted in alphabetical order', done => {
+  test('invokes the callback with an array of all the cats, sorted in alphabetical order', done => {
     const testCB = (err, cats) => {
       expect(cats).to.eql([
         'Belle',

@@ -1,8 +1,15 @@
 const request = require('../utils/server');
 
-const checkServerStatus = () => {};
+const checkServerStatus = callBack => {
+  request('/status', callBack);
+};
 
-const fetchBannerContent = () => {};
+const fetchBannerContent = callBack => {
+  request('/banner', (error, bannerContent) => {
+    bannerContent.copyrightYear = 2019;
+    callBack(error, bannerContent);
+  });
+};
 
 const fetchAllOwners = () => {};
 
