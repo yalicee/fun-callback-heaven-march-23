@@ -45,7 +45,7 @@ describe.only('fetchBannerContent', () => {
     jest.setTimeout(1000);
 
     const testCB = (err, content) => {
-      expect(content).to.have.all.keys(['title', 'bannerImg', 'copyrightYear']);
+      expect(content).toContainAllKeys(['title', 'bannerImg', 'copyrightYear']);
       done();
     };
     fetchBannerContent(testCB);
@@ -66,25 +66,31 @@ describe.only('fetchBannerContent', () => {
   });
 });
 
-describe('fetchAllOwners', () => {
+describe.only('fetchAllOwners', () => {
   test('invokes the callback with no error', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     fetchAllOwners(testCB);
   });
   test('invokes the callback with an array of the correct length', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, owners) => {
-      expect(owners).to.be.an('array');
-      expect(owners.length).to.equal(5);
+      expect(owners).toBeArray();
+      expect(owners).toBeArrayOfSize(5);
       done();
     };
     fetchAllOwners(testCB);
   });
   test('invokes the callback with an array of lowercase owner names', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, owners) => {
-      expect(owners).to.eql([
+      expect(owners).toEqual([
         'pavlov',
         'schrodinger',
         'foucault',
@@ -97,34 +103,47 @@ describe('fetchAllOwners', () => {
   });
 });
 
-describe('fetchCatsByOwner', () => {
+describe.only('fetchCatsByOwner', () => {
   test('invokes the callback with no error when given a valid owner', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     fetchCatsByOwner('calvin', testCB);
   });
   test('invokes the callback with the 404 error when given an invalid owner', done => {
+    jest.setTimeout(1000);
+
     const owner = 'mitch';
     const testCB = err => {
-      expect(err).to.equal(`404 - ${owner} not found`);
+      expect(err).toBe(`404 - ${owner} not found`);
       done();
     };
     fetchCatsByOwner(owner, testCB);
   });
-  test('invokes the callback with the cats for the specified owner', done => {
-    fetchCatsByOwner('vel', (err, cats) => {
-      expect(cats).to.eql(['Opal']);
+  describe('invokes the callback with the cats for the specified owner', () => {
+    it('case: owner === vel', done => {
+      jest.setTimeout(1000);
+
+      fetchCatsByOwner('vel', (err, cats) => {
+        expect(cats).toEqual(['Opal']);
+        done();
+      });
+    });
+    it('case: owner === pavlov', done => {
+      jest.setTimeout(1000);
+
       fetchCatsByOwner('pavlov', (err, cats) => {
-        expect(cats).to.eql(['Belle', 'Dribbles', 'Nibbles']);
+        expect(cats).toEqual(['Belle', 'Dribbles', 'Nibbles']);
         done();
       });
     });
   });
 });
 
-describe('fetchCatPics', () => {
+describe.only('fetchCatPics', () => {
   test('invokes the callback function with no error', done => {
     const testCB = err => {
       expect(err).to.be.null;

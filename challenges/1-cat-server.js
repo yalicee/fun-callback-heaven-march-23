@@ -11,9 +11,18 @@ const fetchBannerContent = callBack => {
   });
 };
 
-const fetchAllOwners = () => {};
+const fetchAllOwners = callBack => {
+  request('/owners', (error, owners) => {
+    callBack(
+      error,
+      owners.map(owner => owner.toLowerCase())
+    );
+  });
+};
 
-const fetchCatsByOwner = () => {};
+const fetchCatsByOwner = (owner, callBack) => {
+  request(`/owners/${owner}/cats`, callBack);
+};
 
 const fetchCatPics = () => {};
 
