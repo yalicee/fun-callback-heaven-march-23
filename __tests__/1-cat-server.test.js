@@ -10,7 +10,7 @@ const {
   buySingleOutfit
 } = require('../challenges/1-cat-server');
 
-describe.only('checkServerStatus', () => {
+describe.only('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -31,7 +31,7 @@ describe.only('checkServerStatus', () => {
   });
 });
 
-describe.only('fetchBannerContent', () => {
+describe.only('fetchBannerContent()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -66,7 +66,7 @@ describe.only('fetchBannerContent', () => {
   });
 });
 
-describe.only('fetchAllOwners', () => {
+describe.only('fetchAllOwners()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -103,7 +103,7 @@ describe.only('fetchAllOwners', () => {
   });
 });
 
-describe.only('fetchCatsByOwner', () => {
+describe.only('fetchCatsByOwner()', () => {
   test('invokes the callback with no error when given a valid owner', done => {
     jest.setTimeout(1000);
 
@@ -143,27 +143,33 @@ describe.only('fetchCatsByOwner', () => {
   });
 });
 
-describe.only('fetchCatPics', () => {
+describe.only('fetchCatPics()', () => {
   test('invokes the callback function with no error', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     fetchCatPics([], testCB);
   });
   test('invokes the callback function with a single response', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, responses) => {
-      expect(responses).to.eql(['cute-cat.jpg']);
+      expect(responses).toEqual(['cute-cat.jpg']);
       done();
     };
     fetchCatPics(['cute-cat'], testCB);
   });
   test('invokes the callback function with multiple unordered responses', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, responses) => {
-      expect(responses).to.include('cute-cat.jpg');
-      expect(responses).to.include('chonky-cat.jpg');
-      expect(responses).to.include('scratchy-cat.jpg');
-      expect(responses).to.include('pathetic-cat.jpg');
+      expect(responses).toContain('cute-cat.jpg');
+      expect(responses).toContain('chonky-cat.jpg');
+      expect(responses).toContain('scratchy-cat.jpg');
+      expect(responses).toContain('pathetic-cat.jpg');
       done();
     };
     fetchCatPics(
@@ -172,13 +178,15 @@ describe.only('fetchCatPics', () => {
     );
   });
   test('handles error responses with a placeholder', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, responses) => {
-      expect(responses).to.include('cute-cat.jpg');
-      expect(responses).to.include('chonky-cat.jpg');
-      expect(responses).to.include('scratchy-cat.jpg');
-      expect(responses).to.include('pathetic-cat.jpg');
-      expect(responses).to.not.include('ERROR: out-of-place-dog not found!');
-      expect(responses).to.include('placeholder.jpg');
+      expect(responses).toContain('cute-cat.jpg');
+      expect(responses).toContain('chonky-cat.jpg');
+      expect(responses).toContain('scratchy-cat.jpg');
+      expect(responses).toContain('pathetic-cat.jpg');
+      expect(responses).not.toContain('ERROR: out-of-place-dog not found!');
+      expect(responses).toContain('placeholder.jpg');
       done();
     };
     fetchCatPics(
@@ -194,17 +202,21 @@ describe.only('fetchCatPics', () => {
   });
 });
 
-describe('fetchAllCats', () => {
+describe.only('fetchAllCats()', () => {
   test('invokes the callback with no error', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     fetchAllCats(testCB);
   });
   test('invokes the callback with an array of all the cats, sorted in alphabetical order', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, cats) => {
-      expect(cats).to.eql([
+      expect(cats).toEqual([
         'Belle',
         'Dribbles',
         'Hobbes',
@@ -220,24 +232,30 @@ describe('fetchAllCats', () => {
   });
 });
 
-describe('fetchOwnersWithCats', () => {
+describe.only('fetchOwnersWithCats()', () => {
   it('invokes the callback function with no error', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     fetchOwnersWithCats(testCB);
   });
   it('invokes the callback function with an array of cat/owner objects', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, owners) => {
-      expect(owners).to.deep.include({ owner: 'vel', cats: ['Opal'] });
+      expect(owners).toContainEqual({ owner: 'vel', cats: ['Opal'] });
       done();
     };
     fetchOwnersWithCats(testCB);
   });
   it('invokes the callback function with the array of cat/owner objects in the origin order', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, owners) => {
-      expect(owners).to.deep.eql([
+      expect(owners).toEqual([
         { owner: 'pavlov', cats: ['Belle', 'Dribbles', 'Nibbles'] },
         { owner: 'schrodinger', cats: ['Leben', 'Tot'] },
         { owner: 'foucault', cats: ['M. Fang'] },
@@ -249,47 +267,55 @@ describe('fetchOwnersWithCats', () => {
     fetchOwnersWithCats(testCB);
   });
   it('orders the owners without using a sort function', () => {
-    expect(fetchOwnersWithCats.toString()).to.not.include('.sort(');
+    jest.setTimeout(1000);
+
+    expect(fetchOwnersWithCats.toString()).not.toContain('.sort(');
   });
 });
 
-describe('kickLegacyServerUntilItWorks', () => {
-  it('(eventually!) invokes the callback with no error', done => {
+describe.only('kickLegacyServerUntilItWorks()', () => {
+  test('(eventually!) invokes the callback with no error', done => {
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     kickLegacyServerUntilItWorks(testCB);
   });
-  it('(eventually!) invokes callback with the correct string', done => {
+  test('(eventually!) invokes callback with the correct string', done => {
     const testCB = (err, status) => {
-      expect(status).to.equal('200 - the legacy server is up');
+      expect(status).toBe('200 - the legacy server is up');
       done();
     };
     kickLegacyServerUntilItWorks(testCB);
   });
 });
 
-describe('buySingleOutfit', () => {
+describe.only('buySingleOutfit()', () => {
   // As done can only be called once, these tests implicitly check that our callback isn't being invoked multiple times
-  it('invokes the callback with no error when given a valid outfit', done => {
+  test('invokes the callback with no error when given a valid outfit', done => {
+    jest.setTimeout(1000);
+
     const testCB = err => {
-      expect(err).to.be.null;
+      expect(err).toBe(null);
       done();
     };
     buySingleOutfit('taco', testCB);
   });
-  it('invokes the callback with an error when given an invalid outfit', done => {
+  test('invokes the callback with an error when given an invalid outfit', done => {
+    jest.setTimeout(1000);
+
     const outfit = 'dannyDevito';
     const testCB = err => {
-      expect(err).to.equal(`404 - ${outfit} not found`);
+      expect(err).toBe(`404 - ${outfit} not found`);
       done();
     };
     buySingleOutfit(outfit, testCB);
   });
-  it('invokes the callback with a checkout object', done => {
+  test('invokes the callback with a checkout object', done => {
+    jest.setTimeout(1000);
+
     const testCB = (err, checkout) => {
-      expect(checkout).to.eql({
+      expect(checkout).toEqual({
         quantity: 1,
         outfit: 'gremlin',
         totalCost: 73.1
