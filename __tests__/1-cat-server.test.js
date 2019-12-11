@@ -10,7 +10,7 @@ const {
   buySingleOutfit
 } = require('../challenges/1-cat-server');
 
-describe.only('checkServerStatus()', () => {
+describe('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -31,7 +31,7 @@ describe.only('checkServerStatus()', () => {
   });
 });
 
-describe.only('fetchBannerContent()', () => {
+describe('fetchBannerContent()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -66,7 +66,7 @@ describe.only('fetchBannerContent()', () => {
   });
 });
 
-describe.only('fetchAllOwners()', () => {
+describe('fetchAllOwners()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -103,7 +103,7 @@ describe.only('fetchAllOwners()', () => {
   });
 });
 
-describe.only('fetchCatsByOwner()', () => {
+describe('fetchCatsByOwner()', () => {
   test('invokes the callback with no error when given a valid owner', done => {
     jest.setTimeout(1000);
 
@@ -143,7 +143,7 @@ describe.only('fetchCatsByOwner()', () => {
   });
 });
 
-describe.only('fetchCatPics()', () => {
+describe('fetchCatPics()', () => {
   test('invokes the callback function with no error', done => {
     jest.setTimeout(1000);
 
@@ -202,7 +202,7 @@ describe.only('fetchCatPics()', () => {
   });
 });
 
-describe.only('fetchAllCats()', () => {
+describe('fetchAllCats()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -232,7 +232,7 @@ describe.only('fetchAllCats()', () => {
   });
 });
 
-describe.only('fetchOwnersWithCats()', () => {
+describe('fetchOwnersWithCats()', () => {
   it('invokes the callback function with no error', done => {
     jest.setTimeout(1000);
 
@@ -273,7 +273,7 @@ describe.only('fetchOwnersWithCats()', () => {
   });
 });
 
-describe.only('kickLegacyServerUntilItWorks()', () => {
+describe('kickLegacyServerUntilItWorks()', () => {
   test('(eventually!) invokes the callback with no error', done => {
     const testCB = err => {
       expect(err).toBe(null);
@@ -290,7 +290,7 @@ describe.only('kickLegacyServerUntilItWorks()', () => {
   });
 });
 
-describe.only('buySingleOutfit()', () => {
+describe('buySingleOutfit()', () => {
   // As done can only be called once, these tests implicitly check that our callback isn't being invoked multiple times
   test('invokes the callback with no error when given a valid outfit', done => {
     jest.setTimeout(1000);
