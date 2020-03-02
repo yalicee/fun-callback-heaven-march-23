@@ -1,22 +1,22 @@
 const request = require('../utils/server');
 
-const checkServerStatus = callBack => {};
+function checkServerStatus(callBack) {}
 
-const fetchBannerContent = callBack => {};
+function fetchBannerContent(callBack) {}
 
-const fetchAllOwners = callBack => {};
+function fetchAllOwners(callBack) {}
 
-const fetchCatsByOwner = (owner, callBack) => {};
+function fetchCatsByOwner(owner, callBack) {}
 
-const fetchCatPics = (catNames, callBack) => {};
+function fetchCatPics(catNames, callBack) {}
 
-const fetchAllCats = callBack => {};
+function fetchAllCats(callBack) {}
 
-const fetchOwnersWithCats = callBack => {};
+function fetchOwnersWithCats(callBack) {}
 
-const kickLegacyServerUntilItWorks = callBack => {};
+function kickLegacyServerUntilItWorks(callBack) {}
 
-const buySingleOutfit = (outfit, callBack) => {};
+function buySingleOutfit(outfit, callBack) {}
 
 module.exports = {
   buySingleOutfit,
