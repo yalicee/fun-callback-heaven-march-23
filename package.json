@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest __tests__/1-cat-server.test.js"
+    "test": "jest --watch",
+    "generate": "node ./generate.js",
+    "remove-project": "node ./remove-project.js"
   },
   "repository": {
     "type": "git",

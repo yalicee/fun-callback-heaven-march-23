@@ -202,7 +202,7 @@ describe('fetchCatPics()', () => {
   });
 });
 
-describe('fetchAllCats()', () => {
+describe.only('fetchAllCats()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
