@@ -50,9 +50,9 @@ describe('project_generator', () => {
       });
     });
   });
-  test('has a index.spec.js inside the spec folder', done => {
+  test('has a index.test.js inside the spec folder', done => {
     projectGenerator(TEST_PROJECT_NAME, () => {
-      fs.access('./my_new_project/spec/index.spec.js', fs.constants.F_OK, err => {
+      fs.access('./my_new_project/spec/index.test.js', fs.constants.F_OK, err => {
         expect(err).toBe(null);
         done();
       });

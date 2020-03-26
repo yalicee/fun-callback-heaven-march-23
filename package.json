@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest",
     "generate": "node ./generate.js",
     "remove-project": "node ./remove-project.js"
   },

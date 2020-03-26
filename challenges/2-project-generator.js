@@ -28,7 +28,13 @@ function projectGenerator(projectName, cb) {
       const filesToWrite = [
         { fileName: `./${projectName}/index.js`, data: '' },
         { fileName: `./${projectName}/.gitignore`, data: 'node_modules' },
-        { fileName: `./${projectName}/spec/index.spec.js`, data: '' },
+        {
+          fileName: `./${projectName}/spec/index.test.js`,
+          data: `describe('someFunc()',() => {
+          test('',() => {
+          })
+        })`
+        },
         { fileName: `./${projectName}/README.md`, data: `# ${projectName}` }
       ];
       let fileWritten = 0;

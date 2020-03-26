@@ -56,8 +56,7 @@ describe('fetchBannerContent()', () => {
     function testCB(err, content) {
       expect(content).toEqual({
         title: 'Kitty Litter',
-        bannerImg:
-          'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
+        bannerImg: 'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
         copyrightYear: 2019
       });
       done();
@@ -90,13 +89,7 @@ describe('fetchAllOwners()', () => {
     jest.setTimeout(1000);
 
     function testCB(err, owners) {
-      expect(owners).toEqual([
-        'pavlov',
-        'schrodinger',
-        'foucault',
-        'vel',
-        'calvin'
-      ]);
+      expect(owners).toEqual(['pavlov', 'schrodinger', 'foucault', 'vel', 'calvin']);
       done();
     }
     fetchAllOwners(testCB);
@@ -172,10 +165,7 @@ describe('fetchCatPics()', () => {
       expect(responses).toContain('pathetic-cat.jpg');
       done();
     }
-    fetchCatPics(
-      ['cute-cat', 'chonky-cat', 'scratchy-cat', 'pathetic-cat'],
-      testCB
-    );
+    fetchCatPics(['cute-cat', 'chonky-cat', 'scratchy-cat', 'pathetic-cat'], testCB);
   });
   test('handles error responses with a placeholder', done => {
     jest.setTimeout(1000);
@@ -190,13 +180,7 @@ describe('fetchCatPics()', () => {
       done();
     }
     fetchCatPics(
-      [
-        'cute-cat',
-        'chonky-cat',
-        'scratchy-cat',
-        'pathetic-cat',
-        'out-of-place-dog'
-      ],
+      ['cute-cat', 'chonky-cat', 'scratchy-cat', 'pathetic-cat', 'out-of-place-dog'],
       testCB
     );
   });
