@@ -2,7 +2,7 @@ const projectGenerator = require('../challenges/2-project-generator');
 const fs = require('fs');
 const removeProject = require('./utils.js');
 
-describe.only('project_generator', () => {
+describe('project_generator', () => {
   beforeEach(done => removeProject('my_new_project', done));
   afterAll(done => removeProject('my_new_project', done));
 
