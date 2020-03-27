@@ -2,7 +2,7 @@ const projectGenerator = require('../challenges/2-project-generator');
 const fs = require('fs');
 const removeProject = require('./utils.js');
 
-describe('project_generator', () => {
+describe.only('project_generator', () => {
   beforeEach(done => removeProject('my_new_project', done));
   afterAll(done => removeProject('my_new_project', done));
 
@@ -65,10 +65,46 @@ describe('project_generator', () => {
       });
     });
   });
-  test('project is initialised as a .gitignore repository', done => {
+  test('project is initialised as a git repository', done => {
     projectGenerator('my_new_project', () => {
       fs.access('./my_new_project/.git', fs.constants.F_OK, (err, fileContents) => {
         expect(err).toBe(null);
+        done();
+      });
+    });
+  });
+  test('project has a .eslintrc.json config file', done => {
+    projectGenerator('my_new_project', () => {
+      fs.access('./my_new_project/.eslintrc.json', fs.constants.F_OK, err => {
+        expect(err).toBe(null);
+        done();
+      });
+    });
+  });
+  test('project has a package.json file', done => {
+    projectGenerator('my_new_project', () => {
+      fs.access('./my_new_project/package.json', fs.constants.F_OK, err => {
+        expect(err).toBe(null);
+        done();
+      });
+    });
+  });
+  test('package.json file has Dev dependencies', done => {
+    projectGenerator('my_new_project', () => {
+      fs.readFile('./my_new_project/package.json', 'utf8', (err, data) => {
+        const parsedPackageJSON = JSON.parse(data);
+        expect(parsedPackageJSON).toHaveProperty('devDependencies');
+        done();
+      });
+    });
+  });
+  test('package.json test script is not the default', done => {
+    projectGenerator('my_new_project', () => {
+      fs.readFile('./my_new_project/package.json', 'utf8', (err, data) => {
+        const parsedPackageJSON = JSON.parse(data);
+        expect(parsedPackageJSON.scripts.test !== 'echo "Error: no test specified" && exit 1').toBe(
+          true
+        );
         done();
       });
     });
