@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha spec"
+    "test": "jest",
+    "generate": "node ./generate.js",
+    "remove-project": "node ./remove-project.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +20,7 @@
   },
   "homepage": "https://github.com/northcoders/BE-callback-heaven#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4",
-    "prettier": "^1.16.4"
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2"
   }
 }
