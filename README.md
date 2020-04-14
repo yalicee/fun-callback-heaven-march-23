@@ -138,10 +138,10 @@ A big part of problem solving is reading documentation and establishing what you
 
 Reimplement the following functions from the much-loved Async library:
 
-- [Map](https://caolan.github.io/async/docs.html#map)
-- [Filter](https://caolan.github.io/async/docs.html#filter)
-- [Some](https://caolan.github.io/async/docs.html#some)
-- [Waterfall](https://caolan.github.io/async/docs.html#waterfall)
+- [Map](https://caolan.github.io/async/v3/docs.html#map)
+- [Filter](https://caolan.github.io/async/v3/docs.html#filter)
+- [Some](https://caolan.github.io/async/v3/docs.html#some)
+- [Waterfall](https://caolan.github.io/async/v3/docs.html#waterfall)
 
 Each of these should be done with full asynchronous TDD.
 
