@@ -57,7 +57,7 @@ describe('fetchBannerContent()', () => {
       expect(content).toEqual({
         title: 'Kitty Litter',
         bannerImg: 'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
-        copyrightYear: 2019
+        copyrightYear: 2020
       });
       done();
     }
@@ -186,7 +186,7 @@ describe('fetchCatPics()', () => {
   });
 });
 
-describe.only('fetchAllCats()', () => {
+describe('fetchAllCats()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
