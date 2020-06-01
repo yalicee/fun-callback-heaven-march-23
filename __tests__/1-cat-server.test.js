@@ -10,7 +10,7 @@ const {
   buySingleOutfit
 } = require('../challenges/1-cat-server');
 
-describe('checkServerStatus()', () => {
+describe.only('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 

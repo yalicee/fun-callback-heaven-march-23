@@ -1,22 +1,22 @@
 const request = require('../utils/server');
 
-function checkServerStatus(callBack) {}
+function checkServerStatus() {}
 
-function fetchBannerContent(callBack) {}
+function fetchBannerContent() {}
 
-function fetchAllOwners(callBack) {}
+function fetchAllOwners() {}
 
-function fetchCatsByOwner(owner, callBack) {}
+function fetchCatsByOwner() {}
 
-function fetchCatPics(catNames, callBack) {}
+function fetchCatPics() {}
 
-function fetchAllCats(callBack) {}
+function fetchAllCats() {}
 
-function fetchOwnersWithCats(callBack) {}
+function fetchOwnersWithCats() {}
 
-function kickLegacyServerUntilItWorks(callBack) {}
+function kickLegacyServerUntilItWorks() {}
 
-function buySingleOutfit(outfit, callBack) {}
+function buySingleOutfit() {}
 
 module.exports = {
   buySingleOutfit,

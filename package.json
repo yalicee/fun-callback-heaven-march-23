@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest 1-cat",
     "generate": "node ./generate.js",
     "remove-project": "node ./remove-project.js"
   },
