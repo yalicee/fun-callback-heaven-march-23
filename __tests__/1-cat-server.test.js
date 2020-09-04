@@ -10,7 +10,7 @@ const {
   buySingleOutfit
 } = require('../challenges/1-cat-server');
 
-describe.only('checkServerStatus()', () => {
+describe('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
@@ -274,8 +274,7 @@ describe('kickLegacyServerUntilItWorks()', () => {
   });
 });
 
-describe('buySingleOutfit()', () => {
-  // As done can only be called once, these tests implicitly check that our callback isn't being invoked multiple times
+describe.only('buySingleOutfit()', () => {
   test('invokes the callback with no error when given a valid outfit', done => {
     jest.setTimeout(1000);
 
@@ -295,10 +294,11 @@ describe('buySingleOutfit()', () => {
     }
     buySingleOutfit(outfit, testCB);
   });
-  test('invokes the callback with a checkout object', done => {
+  test('invokes the callback with a checkout object only once', done => {
     jest.setTimeout(1000);
 
     function testCB(err, checkout) {
+      expect(mockCallback).toHaveBeenCalledTimes(1);
       expect(checkout).toEqual({
         quantity: 1,
         outfit: 'gremlin',
@@ -306,6 +306,7 @@ describe('buySingleOutfit()', () => {
       });
       done();
     }
-    buySingleOutfit('gremlin', testCB);
+    const mockCallback = jest.fn(testCB);
+    buySingleOutfit('gremlin', mockCallback);
   });
 });
