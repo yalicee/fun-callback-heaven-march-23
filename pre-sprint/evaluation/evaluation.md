@@ -18,7 +18,7 @@ b) How many **parameters** does `fetchJoke` have ?</br></br>
 c) What are the **parameters** for `fetchJoke` ?</br></br>
 d) What are the **parameters** for the **2nd argument** of `fetchJoke`</br></br>
 e) Why is `fetchJoke` considered to be a higher order function ?</br></br>
-f) What is the purpose of the `callBack` function used inside of `fetchJoke` ?
+f) When should the function passed to fetchJoke be invoked ? <br></br>
 
 ---
 
