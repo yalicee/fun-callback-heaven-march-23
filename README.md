@@ -117,7 +117,7 @@ These should include:
 
 - an index.js
 - a spec folder
-- an index.spec.js
+- an index.test.js
 - a package.json set up with the basic dependencies and scripts
 - a README.md file
 - an eslint config file
