@@ -32,15 +32,6 @@ describe.skip('project_generator', () => {
       });
     });
   });
-  test('project has a .gitignore ignoring node_modules', done => {
-    projectGenerator('my_new_project', () => {
-      fs.readFile('./my_new_project/.gitignore', 'utf8', (err, contents) => {
-        expect(err).toBe(null);
-        expect(contents).toBe('node_modules');
-        done();
-      });
-    });
-  });
   test('has a spec folder', done => {
     projectGenerator('my_new_project', () => {
       fs.access('./my_new_project/spec', fs.constants.F_OK, (err, contents) => {
