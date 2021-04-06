@@ -5,11 +5,3 @@ const request = require('./request.js');
 // request is a function that we've created:
 // request takes as its first argument: a url like above
 // and a callback function that gives you access to the data
-
-const fetchJoke = () => {
-  request('https://icanhazdadjoke.com', (err, joke) => {
-    console.log(joke.joke);
-  });
-};
-
-fetchJoke();
