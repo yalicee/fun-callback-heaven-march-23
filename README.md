@@ -106,13 +106,13 @@ The function `buySingleOutfit` will need
 
 - to take an outfit and a callback function as its arguments
 - need to make a request to the `/outfits/:outfit` end-point in order to purchase a particular outfit -
-  however, there is a big problem. The person who has desgined the server for this end-point has accidentally
+  however, there is a big problem. The person who has designed the server for this end-point has accidentally
   triggered the purchase of the item multiple times - ouch, thats going to cost a lot.
 - You need to use additional logic to prevent your final callback function from being invoked multiple times
 
 ## Section 2 - Project Generator
 
-Build a project generator. The goal is to be able to use the terminal command `$generate my_new_project` and it should create a directory with the project's name in your current location, then fill it with the necessary files to start a basic JS project.
+Build a project generator. The goal is to be able to use the terminal command `$generate my_new_project` which should create a directory with the project name passed in your current location and fill it with the necessary files to start a basic JS project.
 These should include:
 
 - an index.js
@@ -123,9 +123,12 @@ These should include:
 - an eslint config file
 - a .gitignore file
 - a git repository initialised
-  In order to do this you will need to utilise the **File System** module available in Node. Only use the asynchronous methods - any ending in 'sync' are not allowed.
 
-A big part of problem solving is reading documentation and establishing what you will need and how to use it - here is the [documentation for Node's File System module](https://nodejs.org/api/fs.html). You'll also have to research how to install your program on your computer to make the generate command globally available from your terminal.
+In order to do this you will need to utilise the **File System** module available in Node. Only use the asynchronous methods - any ending in 'sync' are not allowed.
+
+A big part of problem solving is reading documentation and establishing what you will need and how to use it - here is the [documentation for Node's File System module](https://nodejs.org/api/fs.html).
+
+You'll also have to research how to install your program on your computer to make the generate command globally available from your terminal.
 
 ### Advanced Features
 
@@ -136,7 +139,7 @@ A big part of problem solving is reading documentation and establishing what you
 
 ## Section 3 - Reimplementing Generalised Asynchronous Functions
 
-Reimplement the following functions from the much-loved Async library:
+Re-implement the following functions from the much-loved Async library:
 
 - [Map](https://caolan.github.io/async/v3/docs.html#map)
 - [Filter](https://caolan.github.io/async/v3/docs.html#filter)
