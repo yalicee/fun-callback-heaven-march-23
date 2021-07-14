@@ -133,7 +133,7 @@ You'll also have to research how to install your program on your computer to mak
 ### Advanced Features
 
 - Configure your generator to automatically run npm install when used, installing all the packages listed in the package.json.
-- If called like so: generate [project name][github http], it should automatically add the github http as a remote.
+- If called like so: `generate [project name][github http]`, it should automatically add the github http as a remote.
 - It should perform an initial commit with the message 'initial commit' and push it to your github on the link provided.
 - Explore how you could add interactivity purely with Node, i.e. ask the user to input the name of the project on the console or select between a choice of project templates.
 
