@@ -112,6 +112,8 @@ The function `buySingleOutfit` will need
 
 ## Section 2 - Project Generator
 
+First, ensure that you have the latest version of `nodejs` installed. This is most easilly achieved by using [this nvm install script](https://github.com/nvm-sh/nvm#install--update-script) as per [these instructions on the nodejs website](https://nodejs.org/en/download/package-manager/#nvm)
+
 Build a project generator. The goal is to be able to use the terminal command `$generate my_new_project` which should create a directory with the project name passed in your current location and fill it with the necessary files to start a basic JS project.
 These should include:
 
