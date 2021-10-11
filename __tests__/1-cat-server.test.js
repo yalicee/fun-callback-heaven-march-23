@@ -57,7 +57,7 @@ describe('fetchBannerContent()', () => {
       expect(content).toEqual({
         title: 'Kitty Litter',
         bannerImg: 'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
-        copyrightYear: 2020
+        copyrightYear: 2021
       });
       done();
     }
