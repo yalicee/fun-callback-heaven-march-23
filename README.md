@@ -3,24 +3,27 @@
 In the early days of Node, callbacks were the main way of handling asynchronicity.
 In this sprint, you will have to build async functions using your knowledge of callbacks, in order to make requests to our server.
 
-Our very own NC server has a series of endpoints from which you can gain a range of information about our adorable cats.
-The server's endpoints are detailed below:
-
 ### Learning Objectives
 
 - Learn about asynchronous nature of javascript
 - Understand how to use callback functions in Node
 - Understand how to deal with the most common issues that arise from using callbacks
 
+Our very own NC server has a series of endpoints from which you can gain a range of information about our adorable cats.
+
+The server's endpoints are detailed below:
+
 ## Section 1 - Kitty Litter Cat Server
 
 It's time to build a website for ALL THINGS CAT!
 
-Your back end dev friend has set up a few questionable end points, and provided a few instructions for how to use them.
+Your backend dev friend has set up a few end points, and provided a few instructions for how to use them.
 
 Using the `request` function provided, please interact with the server to pass the tests (provided!).
 
-`request` is a function that takes hard coded endpoints, and a callback function. It will invoke the callback function asynchronously, with either an error or a result.
+`request` is a function that takes a path and a callback function as its arguments. It will invoke the callback function asynchronously, with either an error or a successful response as a consequence of interacting with the data found on that path.
+
+**Note:** You do not need to delve into the server files found in the utils folder in order to complete this sprint. You will be able to receive all of the information you need via the response from the request function.
 
 The endpoints, and their desired results, are outlined below.
 
@@ -67,9 +70,12 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 #### `fetchCatPics()`
 
 - this function should take an array of strings (names of cat pics) and a callback function
-- for each catpic, a request should be sent to `/pics/:catpic`
-- the callback function should be invoked with an array of responses (the order does not matter)
-- The server will respond with an error if the requested pic doesn't contain the word "cat". Therefore if you receive an error, you must put `placeholder.jpg` in its place in the response array to act as a placeholder for the missing cat picture.
+- for each catpic in the passed array, a request should be sent to `/pics/:catpic`
+- each response will represent an actual catpic with the suffix `.jpeg`
+- the callback function should be invoked with an array of responses once all the catpics have been collated(the order does not matter)
+- The server will respond with an error if the requested pic doesn't contain the word "cat". Therefore, if you receive an error, you must put `placeholder.jpg` in its place in the response array to act as a placeholder for the missing cat picture.
+
+**Note:** You should make the request to receive the string containing `.jpeg` rather than using a JS method!
 
 #### `fetchAllCats()`
 
