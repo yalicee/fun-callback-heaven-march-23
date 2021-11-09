@@ -1,6 +1,6 @@
 # Post-lecture evaluation
 
-Make some notes to asnwer the below questions considering these snippets of code:
+Make some notes to answer the below questions regarding these snippets of code:
 
 ## Task 1
 
