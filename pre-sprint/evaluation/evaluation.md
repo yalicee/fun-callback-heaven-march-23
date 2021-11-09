@@ -1,5 +1,7 @@
 # Post-lecture evaluation
 
+Make some notes to asnwer the below questions considering these snippets of code:
+
 ## Task 1
 
 ```js
