@@ -6,6 +6,6 @@ function getJSFiles() {}
 // a callback function
 // the callback function must be invoked with an error and an array of js files only
 
-getJSFiles('./directory', function (error, jsFiles) {
+getJSFiles('./library', function (error, jsFiles) {
   console.log(`The jsFiles are: `, jsFiles);
 });
