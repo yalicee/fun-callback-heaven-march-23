@@ -65,7 +65,8 @@ The endpoints, and their desired results, are outlined below.
 
 _N.b., parametric endpoints, often denoted with `:` are generally placeholders for actual values. In this example, `/owners/:owner/cats` would be replaced with something akin to `/owners/vel/cats`, and respond with Vel's cats_
 
-- the server should respond with an array of cats which you must pass to the callback function
+- the server will respond with a 404 error if there is no such owner with that name, in which case you should invoke the callback function with this error
+- if the owner does exist then the server will respond with an array of cats which you must pass to the callback function
 
 #### `fetchCatPics()`
 
@@ -73,7 +74,7 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 - for each cat name in the passed array, a request should be sent to `/pics/:catpic`
 - each response will represent an actual catpic with the suffix `.jpg`
 - the callback function should be invoked with an array of responses once all the catpics have been collated(the order does not matter)
-- The server will respond with an error if the requested pic doesn't contain the word "cat". Therefore, if you receive an error, you must put `placeholder.jpg` in its place in the response array to act as a placeholder for the missing cat picture.
+- the server will respond with an error if the requested pic doesn't contain the word "cat". Therefore, if you receive an error, you must put `placeholder.jpg` in its place in the response array to act as a placeholder for the missing cat picture.
 
 **Note:** You should make the request to receive the string containing `.jpg` rather than using a JS method!
 
@@ -81,7 +82,7 @@ _N.b., parametric endpoints, often denoted with `:` are generally placeholders f
 
 - this function should take a callback function as its only argument
 - this function should make use of both `fetchAllOwners` and `fetchCatsByOwner` in order to retrieve an array of all the cats from the server
-- Be mindful of the casing of your requests! `fetchCatsByOwner` only works with lowercase owner names
+- be mindful of the casing of your requests! `fetchCatsByOwner` only works with lowercase owner names
 - you must finally pass the array of all those adorable cats to the callback function, sorted in alphabetical order
 
 #### `fetchOwnersWithCats()`
@@ -114,7 +115,7 @@ The function `buySingleOutfit` will need
 - need to make a request to the `/outfits/:outfit` end-point in order to purchase a particular outfit -
   however, there is a big problem. The person who has designed the server for this end-point has accidentally
   triggered the purchase of the item multiple times - ouch, thats going to cost a lot.
-- You need to use additional logic to prevent your final callback function from being invoked multiple times
+- you need to use additional logic to prevent your final callback function from being invoked multiple times
 
 ## Section 2 - Project Generator
 
