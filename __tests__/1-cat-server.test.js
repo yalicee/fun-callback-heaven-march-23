@@ -9,6 +9,7 @@ const {
   kickLegacyServerUntilItWorks,
   buySingleOutfit
 } = require('../challenges/1-cat-server');
+const { bannerContent } = require('../utils/database');
 
 describe('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
@@ -59,6 +60,15 @@ describe('fetchBannerContent()', () => {
         bannerImg: 'https://riotfest.org/wp-content/uploads/2017/10/AcT9YIL.jpg',
         copyrightYear: 2021
       });
+      done();
+    }
+    fetchBannerContent(testCB);
+  });
+  test('invokes the callback with an object with a different reference in memory', done => {
+    jest.setTimeout(1000);
+
+    function testCB(err, content) {
+      expect(content).not.toBe(bannerContent);
       done();
     }
     fetchBannerContent(testCB);
