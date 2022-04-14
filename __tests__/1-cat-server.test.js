@@ -75,7 +75,7 @@ describe('fetchBannerContent()', () => {
   });
 });
 
-describe.only('fetchAllOwners()', () => {
+describe('fetchAllOwners()', () => {
   test('invokes the callback with no error', done => {
     jest.setTimeout(1000);
 
