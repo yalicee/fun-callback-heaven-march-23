@@ -9,6 +9,7 @@ const {
   kickLegacyServerUntilItWorks,
   buySingleOutfit
 } = require('../challenges/1-cat-server');
+const { bannerContent, owners } = require('../utils/database');
 
 describe('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
@@ -63,6 +64,15 @@ describe('fetchBannerContent()', () => {
     }
     fetchBannerContent(testCB);
   });
+  test('invokes the callback with an object with a different reference in memory', done => {
+    jest.setTimeout(1000);
+
+    function testCB(err, content) {
+      expect(content).not.toBe(bannerContent);
+      done();
+    }
+    fetchBannerContent(testCB);
+  });
 });
 
 describe('fetchAllOwners()', () => {
@@ -90,6 +100,15 @@ describe('fetchAllOwners()', () => {
 
     function testCB(err, owners) {
       expect(owners).toEqual(['pavlov', 'schrodinger', 'foucault', 'vel', 'calvin']);
+      done();
+    }
+    fetchAllOwners(testCB);
+  });
+  test('invokes the callback with an array with a different reference in memory', done => {
+    jest.setTimeout(1000);
+
+    function testCB(err, petOwners) {
+      expect(petOwners).not.toBe(owners);
       done();
     }
     fetchAllOwners(testCB);
