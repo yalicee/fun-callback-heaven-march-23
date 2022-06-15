@@ -2,8 +2,6 @@ const https = require('https');
 
 function request(url, callBack) {
   const [wholeUrl, hostname, path] = url.match(/https:\/\/([a-z\.]*)(.*)/);
-  console.log(hostname, ' hostname');
-  console.log('path :', path);
   https
     .request(
       {
