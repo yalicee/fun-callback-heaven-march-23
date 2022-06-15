@@ -4,7 +4,7 @@ exports.checkLegacyStatus = errors => {
 };
 
 exports.getPic = (errors, db, pic) => {
-  if (pic.includes('cat')) return `${pic}.jpg`;
+  if (pic.includes('cat') && !pic.includes(',')) return `${pic}.jpg`;
   else errors.push(`ERROR: ${pic} not found!`);
 };
 
