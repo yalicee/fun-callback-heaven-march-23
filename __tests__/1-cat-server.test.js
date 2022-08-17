@@ -10,11 +10,10 @@ const {
   buySingleOutfit
 } = require('../challenges/1-cat-server');
 const { bannerContent, owners } = require('../utils/database');
+jest.setTimeout(1000);
 
 describe('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -22,8 +21,6 @@ describe('checkServerStatus()', () => {
     checkServerStatus(testCB);
   });
   test('invokes the callback with the correct server status', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, status) {
       expect(status).toBe('200 - the server is good');
       done();
@@ -34,8 +31,6 @@ describe('checkServerStatus()', () => {
 
 describe('fetchBannerContent()', () => {
   test('invokes the callback with no error', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -43,8 +38,6 @@ describe('fetchBannerContent()', () => {
     fetchBannerContent(testCB);
   });
   test('invokes the callback with a banner content object', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, content) {
       expect(content).toContainAllKeys(['title', 'bannerImg', 'copyrightYear']);
       done();
@@ -52,8 +45,6 @@ describe('fetchBannerContent()', () => {
     fetchBannerContent(testCB);
   });
   test('invokes the callback with the updated banner content object', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, content) {
       expect(content).toEqual({
         title: 'Kitty Litter',
@@ -65,8 +56,6 @@ describe('fetchBannerContent()', () => {
     fetchBannerContent(testCB);
   });
   test('invokes the callback with an object with a different reference in memory', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, content) {
       expect(content).not.toBe(bannerContent);
       done();
@@ -77,8 +66,6 @@ describe('fetchBannerContent()', () => {
 
 describe('fetchAllOwners()', () => {
   test('invokes the callback with no error', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -86,8 +73,6 @@ describe('fetchAllOwners()', () => {
     fetchAllOwners(testCB);
   });
   test('invokes the callback with an array of the correct length', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, owners) {
       expect(owners).toBeArray();
       expect(owners).toBeArrayOfSize(5);
@@ -96,8 +81,6 @@ describe('fetchAllOwners()', () => {
     fetchAllOwners(testCB);
   });
   test('invokes the callback with an array of lowercase owner names', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, owners) {
       expect(owners).toEqual(['pavlov', 'schrodinger', 'foucault', 'vel', 'calvin']);
       done();
@@ -105,8 +88,6 @@ describe('fetchAllOwners()', () => {
     fetchAllOwners(testCB);
   });
   test('invokes the callback with an array with a different reference in memory', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, petOwners) {
       expect(petOwners).not.toBe(owners);
       done();
@@ -117,8 +98,6 @@ describe('fetchAllOwners()', () => {
 
 describe('fetchCatsByOwner()', () => {
   test('invokes the callback with no error when given a valid owner', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -126,8 +105,6 @@ describe('fetchCatsByOwner()', () => {
     fetchCatsByOwner('calvin', testCB);
   });
   test('invokes the callback with the 404 error when given an invalid owner', done => {
-    jest.setTimeout(1000);
-
     const owner = 'mitch';
     function testCB(err) {
       expect(err).toBe(`404 - ${owner} not found`);
@@ -137,16 +114,12 @@ describe('fetchCatsByOwner()', () => {
   });
   describe('invokes the callback with the cats for the specified owner', () => {
     test('case: owner === vel', done => {
-      jest.setTimeout(1000);
-
       fetchCatsByOwner('vel', (err, cats) => {
         expect(cats).toEqual(['Opal']);
         done();
       });
     });
     test('case: owner === pavlov', done => {
-      jest.setTimeout(1000);
-
       fetchCatsByOwner('pavlov', (err, cats) => {
         expect(cats).toEqual(['Belle', 'Dribbles', 'Nibbles']);
         done();
@@ -157,8 +130,6 @@ describe('fetchCatsByOwner()', () => {
 
 describe('fetchCatPics()', () => {
   test('invokes the callback function with no error', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -166,8 +137,6 @@ describe('fetchCatPics()', () => {
     fetchCatPics([], testCB);
   });
   test('invokes the callback function with a single response', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, responses) {
       expect(responses).toEqual(['cute-cat.jpg']);
       done();
@@ -175,8 +144,6 @@ describe('fetchCatPics()', () => {
     fetchCatPics(['cute-cat'], testCB);
   });
   test('invokes the callback function with multiple unordered responses', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, responses) {
       expect(responses).toContain('cute-cat.jpg');
       expect(responses).toContain('chonky-cat.jpg');
@@ -187,8 +154,6 @@ describe('fetchCatPics()', () => {
     fetchCatPics(['cute-cat', 'chonky-cat', 'scratchy-cat', 'pathetic-cat'], testCB);
   });
   test('handles error responses with a placeholder', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, responses) {
       expect(responses).toContain('cute-cat.jpg');
       expect(responses).toContain('chonky-cat.jpg');
@@ -207,8 +172,6 @@ describe('fetchCatPics()', () => {
 
 describe('fetchAllCats()', () => {
   test('invokes the callback with no error', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -216,8 +179,6 @@ describe('fetchAllCats()', () => {
     fetchAllCats(testCB);
   });
   test('invokes the callback with an array of all the cats, sorted in alphabetical order', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, cats) {
       expect(cats).toEqual([
         'Belle',
@@ -237,8 +198,6 @@ describe('fetchAllCats()', () => {
 
 describe('fetchOwnersWithCats()', () => {
   test('invokes the callback function with no error', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -246,8 +205,6 @@ describe('fetchOwnersWithCats()', () => {
     fetchOwnersWithCats(testCB);
   });
   it('invokes the callback function with an array of cat/owner objects', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, owners) {
       expect(owners).toContainEqual({ owner: 'vel', cats: ['Opal'] });
       done();
@@ -255,8 +212,6 @@ describe('fetchOwnersWithCats()', () => {
     fetchOwnersWithCats(testCB);
   });
   test('invokes the callback function with the array of cat/owner objects in the origin order', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, owners) {
       expect(owners).toEqual([
         { owner: 'pavlov', cats: ['Belle', 'Dribbles', 'Nibbles'] },
@@ -270,8 +225,6 @@ describe('fetchOwnersWithCats()', () => {
     fetchOwnersWithCats(testCB);
   });
   test('orders the owners without using a sort function', () => {
-    jest.setTimeout(1000);
-
     expect(fetchOwnersWithCats.toString()).not.toContain('.sort(');
   });
 });
@@ -295,8 +248,6 @@ describe('kickLegacyServerUntilItWorks()', () => {
 
 describe('buySingleOutfit()', () => {
   test('invokes the callback with no error when given a valid outfit', done => {
-    jest.setTimeout(1000);
-
     function testCB(err) {
       expect(err).toBe(null);
       done();
@@ -304,8 +255,6 @@ describe('buySingleOutfit()', () => {
     buySingleOutfit('taco', testCB);
   });
   test('invokes the callback with an error when given an invalid outfit', done => {
-    jest.setTimeout(1000);
-
     const outfit = 'dannyDevito';
     function testCB(err) {
       expect(err).toBe(`404 - ${outfit} not found`);
@@ -314,8 +263,6 @@ describe('buySingleOutfit()', () => {
     buySingleOutfit(outfit, testCB);
   });
   test('invokes the callback with a checkout object only once', done => {
-    jest.setTimeout(1000);
-
     function testCB(err, checkout) {
       expect(mockCallback).toHaveBeenCalledTimes(1);
       expect(checkout).toEqual({
