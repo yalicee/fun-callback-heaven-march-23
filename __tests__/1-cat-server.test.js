@@ -12,7 +12,7 @@ const {
 const { bannerContent, owners } = require('../utils/database');
 jest.setTimeout(1000);
 
-describe('checkServerStatus()', () => {
+describe.only('checkServerStatus()', () => {
   test('invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -29,7 +29,7 @@ describe('checkServerStatus()', () => {
   });
 });
 
-describe('fetchBannerContent()', () => {
+describe.only('fetchBannerContent()', () => {
   test('invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -64,7 +64,7 @@ describe('fetchBannerContent()', () => {
   });
 });
 
-describe('fetchAllOwners()', () => {
+describe.only('fetchAllOwners()', () => {
   test('invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -96,7 +96,7 @@ describe('fetchAllOwners()', () => {
   });
 });
 
-describe('fetchCatsByOwner()', () => {
+describe.only('fetchCatsByOwner()', () => {
   test('invokes the callback with no error when given a valid owner', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -128,7 +128,7 @@ describe('fetchCatsByOwner()', () => {
   });
 });
 
-describe('fetchCatPics()', () => {
+describe.only('fetchCatPics()', () => {
   test('invokes the callback function with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -170,7 +170,7 @@ describe('fetchCatPics()', () => {
   });
 });
 
-describe('fetchAllCats()', () => {
+describe.only('fetchAllCats()', () => {
   test('invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -196,7 +196,7 @@ describe('fetchAllCats()', () => {
   });
 });
 
-describe('fetchOwnersWithCats()', () => {
+describe.only('fetchOwnersWithCats()', () => {
   test('invokes the callback function with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -229,7 +229,7 @@ describe('fetchOwnersWithCats()', () => {
   });
 });
 
-describe('kickLegacyServerUntilItWorks()', () => {
+describe.only('kickLegacyServerUntilItWorks()', () => {
   test('(eventually!) invokes the callback with no error', done => {
     function testCB(err) {
       expect(err).toBe(null);
@@ -246,7 +246,7 @@ describe('kickLegacyServerUntilItWorks()', () => {
   });
 });
 
-describe('buySingleOutfit()', () => {
+describe.only('buySingleOutfit()', () => {
   test('invokes the callback with no error when given a valid outfit', done => {
     function testCB(err) {
       expect(err).toBe(null);
